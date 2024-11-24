@@ -20,19 +20,10 @@ coverage/
 # Yarn Integrity file
 .yarn-integrity
 
-# dotenv environment variables file
-.env
-.env.test
 
 # Binaries
 node_modules/
 
-# Jest test files
-*.test.ts
-*.test.js
-*.spec.ts
-*.spec.js
-*.snap
 
 # Built files
 build/
