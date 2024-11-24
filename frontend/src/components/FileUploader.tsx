@@ -55,20 +55,22 @@ export const FileUploader: React.FC = () => {
   }, [error, clearError]);
 
   return (
-    <Container>
+    <Container data-testid="container">
       <h1>CSV File Uploader</h1>
       <DropArea
+        data-testid="drop-area"
         onDragOver={handleDragOver}
         onDrop={handleDrop}
         onClick={handleClick}
       >
         {file ? (
-          <FileName>File selected: {file.name}</FileName>
+          <FileName data-testid="file-name">File selected: {file.name}</FileName>
         ) : (
           <p>Drag and drop a CSV file here, or click to select</p>
         )}
         <input
           type="file"
+          data-testid="file-input"
           ref={fileInputRef}
           accept=".csv"
           onChange={handleFileSelect}
@@ -77,6 +79,7 @@ export const FileUploader: React.FC = () => {
       </DropArea>
 
       <Button
+        data-testid="upload-button"
         disabled={isUploading || isDownloading}
         onClick={handleUploadClick}
       >
@@ -87,8 +90,8 @@ export const FileUploader: React.FC = () => {
           : 'Upload'}
       </Button>
 
-      <ProgressBar progress={progress} />
-      {error && <ErrorMessage>{error}</ErrorMessage>}
+      <ProgressBar data-testid="progress-bar" progress={progress} />
+      {error && <ErrorMessage data-testid="error-message">{error}</ErrorMessage>}
     </Container>
   );
 };

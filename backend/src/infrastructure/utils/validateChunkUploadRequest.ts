@@ -8,7 +8,13 @@ export const validateChunkUploadRequest = (req: Request): {
 } => {
   const { chunkIndex, totalChunks, fileName, uploadId } = req.body;
 
-  if (!req.file || chunkIndex === undefined || !fileName || !uploadId) {
+  if (
+    !req.file || 
+    chunkIndex === undefined || 
+    totalChunks === undefined || 
+    !fileName || 
+    !uploadId
+  ) {
     throw new Error('Invalid chunk upload request.');
   }
 

@@ -57,16 +57,13 @@ router.get('/download-zip', (req: Request, res: Response) => {
     const stream = fs.createReadStream(zipPath);
 
     stream.pipe(res).on('finish', () => {
-      console.log('ZIP file sent successfully.');
       fs.unlinkSync(zipPath); 
     });
 
     stream.on('error', (err) => {
-      console.error('Error while streaming ZIP file:', err.message);
       res.status(500).json({ error: 'Failed to send ZIP file.' });
     });
   } catch (error: any) {
-    console.error('Error during file download:', error.message);
     res.status(400).json({ error: error.message || 'Internal server error.' });
   }
 });

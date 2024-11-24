@@ -1,13 +1,13 @@
-
 {
   "compilerOptions": {
-    "target": "ES6",
-    "module": "CommonJS",
+    "baseUrl": "./",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@styles/*": ["src/styles/*"]
+    },
     "jsx": "react",
-    "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
-  },
-  "include": ["src"]
+    "moduleResolution": "node"
+  }
 }
-            

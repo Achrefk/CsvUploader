@@ -8,10 +8,12 @@ interface ProgressBarProps {
 const ProgressBar: React.FC<ProgressBarProps> = ({ progress }) => {
   return (
     <div>
-      <ProgressBarWrapper>
-        <ProgressIndicator progress={progress} />
+      <ProgressBarWrapper data-testid="progress-bar-wrapper">
+        <ProgressIndicator data-testid="progress-indicator" progress={progress} />
       </ProgressBarWrapper>
-      {progress <= 100 && progress > 0 && <ProgressText>{progress}% Completed</ProgressText>}
+      {progress <= 100 && progress > 0 && (
+        <ProgressText data-testid="progress-text">{progress}% Completed</ProgressText>
+      )}
     </div>
   );
 };
